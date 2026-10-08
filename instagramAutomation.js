@@ -150,6 +150,22 @@ class InstagramAutomation {
         }
     }
 
+    async sendCommentReply(commentId, replyText) {
+        try {
+            const pageToken = process.env.PAGE_ACCESS_TOKEN;
+            const url = `https://graph.facebook.com/v26.0/${commentId}/replies`;
+            await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${pageToken}`
+                },
+                body: JSON.stringify({ message: replyText })
+            });
+            console.log(`  [API] 💬 Sent public comment reply: "${replyText}"`);
+        } catch(err) { console.error("Comment reply error", err); }
+    }
+
     async sendRealInstagramDM(commentId, dmMessage, link) {
         // Construct the combined message and link as the final text payload
         const fullMessageText = `${dmMessage}\n\n${link}`;
