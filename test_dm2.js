@@ -1,0 +1,2 @@
+const payload = { recipient: { comment_id: '18284705527289193' }, message: { text: 'Testing private reply via Page ID!' } };
+fetch('https://graph.facebook.com/v26.0/1324391767430278/messages?access_token=EAAqYHjki9BMBSuxi1Sg7G2QDiERs5ptZBmNB9cxWbCh0VGGZAG2NJUQeTy8ZAkcVBDhAS7yZAdAZCeQtjh9X3ASTYPMXqr5DLHSSUsMUXoKzxJ0MVxMklp8hliSzDZCdxkhMYC5quShEytFZA3ltTrvmIjbwOMr5TQ2Modbq1jU7SJLCm6OADnzjCkCePrjZCPb5CeUChi6V', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }).then(r=>r.json()).then(console.log);
